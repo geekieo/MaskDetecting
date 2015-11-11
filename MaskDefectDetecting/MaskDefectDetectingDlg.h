@@ -53,7 +53,5 @@ public:
 
 	afx_msg void OnBnClickedButtonCorrection();//½ÃÕıÍ¼Ïñ
 
-	// ÇãĞ±½Ç¶È
-	int m_editKmax;
 };
 

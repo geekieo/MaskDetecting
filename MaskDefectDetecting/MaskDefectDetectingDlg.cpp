@@ -50,7 +50,6 @@ END_MESSAGE_MAP()
 
 CMaskDefectDetectingDlg::CMaskDefectDetectingDlg(CWnd* pParent /*=NULL*/)
 	: CDialogEx(CMaskDefectDetectingDlg::IDD, pParent)
-	, m_editKmax(0)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -58,7 +57,6 @@ CMaskDefectDetectingDlg::CMaskDefectDetectingDlg(CWnd* pParent /*=NULL*/)
 void CMaskDefectDetectingDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
-	DDX_Text(pDX, IDC_EDIT_KMAX, m_editKmax);
 }
 
 BEGIN_MESSAGE_MAP(CMaskDefectDetectingDlg, CDialogEx)
@@ -208,7 +206,7 @@ void CMaskDefectDetectingDlg::OnBnClickedButtonReadimg()
 	//	pNowImage = pSrcImg;//当前图片
 	//}
 
-	pSrcImg = cvLoadImage("D:\\[Experiment]\\口罩图像\\pylon_2ed\\quemianjin\\10.tiff", 1); //读图
+	pSrcImg = cvLoadImage("D:\\[Experiment]\\口罩图像\\pylon_2ed\\quemianjin\\10.bmp", 1); //读图
 	if (pSrcImg)
 	{
 		DrawPicToHDC(pSrcImg, IDB_SHOW1);
@@ -248,9 +246,8 @@ void CMaskDefectDetectingDlg::OnBnClickedButtonCorrection()
 	Mat src(pSrcImg, true);//pSrcImg拷贝
 	//	imgProcessing.Transformation(src);
 	imgProcessing.SkewCorrection(src);//矫正输入src
-	DrawPicToHDC(imgProcessing.pNowImage, IDB_SHOW2);//矫正输出pNowImage
-	m_editKmax = imgProcessing.kmax;//给编辑框传递kmax值
-	UpdateData(false);//更新编辑框数据
+	DrawPicToHDC(imgProcessing.m_NowImage, IDB_SHOW2);//矫正输出pNowImage
+
 	end_time = (clock() - start_time) / 1000;//用时
 	std::cout << "用时 " << end_time << " 秒" << std::endl;
 }
