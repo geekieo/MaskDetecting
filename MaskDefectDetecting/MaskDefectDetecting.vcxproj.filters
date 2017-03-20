@@ -39,6 +39,12 @@
     <ClInclude Include="MaskDefectProcessing.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="LBP.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="UseHOG.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MaskDefectDetecting.cpp">
@@ -54,6 +60,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="MaskDefectProcessing.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="LBP.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="UseHOG.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
